@@ -145,4 +145,67 @@ public static void main(String[] args) {
  }
 }
 
+6. GCD and LCM
+import java.util.*;
+    
+    public class Main {
+    
+    	    public static void main(String[] args) {
+    	    	    Scanner scn = new Scanner(System.in);
+    	    	    int num1 = scn.nextInt();
+            int num2 = scn.nextInt();
+            
+            int tnum1 = num1;
+            int tnum2 = num2;
+    
+            while(tnum1 % tnum2 != 0){               
+                int rem = tnum1 % tnum2;
+                tnum1 = tnum2;
+                tnum2 = rem;
+            }
+            
+            int gcd = tnum2;
+            int lcm = (num1 * num2)/gcd;
+    
+            System.out.println(gcd);
+            System.out.println(lcm);
+    	    }
+    }
+
+
+7. Grading System
+
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+
+      Scanner sc= new Scanner(System.in);
+      int marks = sc.nextInt();
+
+
+      if(marks > 90){
+          System.out.println("excellent");
+      } else if(marks > 80){
+          System.out.println("good"); 
+      } else if(marks > 70){
+          System.out.println("fair");         
+      } else if(marks > 60){
+          System.out.println("meets expectations");         
+      } else {
+          System.out.println("below par");         
+      }
+  
+   }
+  }
+
+
+                        
+                        
+                        
+                        
+                        
+                        
+                                
 
