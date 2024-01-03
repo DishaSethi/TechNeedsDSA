@@ -1,0 +1,361 @@
+1.printing z
+
+import java.util.*;
+
+public class Main {
+
+  public static void main(String[] args) {
+    // Write your code here
+    System.out.println("*****");
+     System.out.println("   *");
+     System.out.println("  *");
+      System.out.println(" *");
+    
+    
+     System.out.println("*****");
+    
+
+  }
+}
+
+
+2. Printing inverse of a num
+
+import java.util.*;
+import java.math.*;
+
+
+public class assignment1{
+
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner sc=new Scanner (System.in);
+  int num=sc.nextInt();
+  int newnum=0;
+  int place=1;
+  while(num !=0){
+      int d=num%10;
+      num=num/10;
+     
+     
+      newnum=newnum+(place*(int)Math.pow (10,d-1));
+      place++;
+  }
+ 
+  System.out.println(newnum);
+ }
+}
+
+
+3. Printing reverse of  a num
+
+import java.util.*;
+import java.math.*;
+
+public class Main{
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner sc=new Scanner (System.in);
+  int num1=sc.nextInt();
+  int num=num1;
+  int newnum=0;
+  int place=0;
+  while(num !=0){
+      int d=num%10;
+      num=num/10;
+      place++;
+      
+      
+      
+  }
+  
+  while(num1!=0){
+      int d=num1%10;
+      num1=num1/10;
+      newnum=newnum+d*(int)Math.pow(10,place-1);
+      place--;
+      
+  }
+  
+  
+  System.out.println(newnum);
+  
+ }
+}
+
+4. Count digits in a num
+
+import java.util.*;
+import java.math.*;
+
+public class Main{
+
+public static void main(String[] args) {
+  // write your code here  
+  Scanner sc=new Scanner (System.in);
+  int num=sc.nextInt();
+
+
+ int count=0;
+  while(num !=0){
+  
+      num=num/10;
+      count++;
+      
+      
+      
+  }
+System.out.println(count);
+}}
+
+5. To check a prime num
+
+
+import java.util.*;
+
+public class Main{
+
+public static void main(String[] args) {
+  // write your code here  
+  
+  Scanner sc=new Scanner(System.in);
+  
+  int n=sc.nextInt();
+  int c=0;
+  if (n!=2){
+  for (int i=2;i<=n/4;i++){
+      if(n%i==0){
+          c++;
+          break;
+      }
+      
+  }
+  
+  if (c>0){
+      System.out.print("not prime");
+  }
+  else{
+      System.out.print(" prime");
+  }}
+  if(n==2){
+      System.out.println("prime");
+  }
+ }
+}
+
+6. GCD and LCM
+import java.util.*;
+    
+    public class Main{
+    
+    public static void main(String[] args) {
+      
+      Scanner sc=new Scanner(System.in);
+      int n1=sc.nextInt();
+      int n2=sc.nextInt();
+      int num1=n1;
+      int num2=n2;
+     
+     while(n1 %n2 !=0){
+         int rem=n1%n2;
+         n1=n2;
+         n2=rem;
+     } 
+     int gcd=n2;
+     
+     int lcm=(n1*n2)/gcd;
+     
+     System.out.println("gcd is "+gcd);
+     System.out.println("lcm is"+lcm);
+     
+     }
+    }
+
+
+
+7. Grading System
+
+import java.util.*;
+  
+  public class Main{
+  
+  public static void main(String[] args) {
+
+      Scanner sc= new Scanner(System.in);
+      int marks = sc.nextInt();
+
+
+      if(marks > 90){
+          System.out.println("excellent");
+      } else if(marks > 80){
+          System.out.println("good"); 
+      } else if(marks > 70){
+          System.out.println("fair");         
+      } else if(marks > 60){
+          System.out.println("meets expectations");         
+      } else {
+          System.out.println("below par");         
+      }
+  
+   }
+  }
+
+
+                        
+                        
+                        
+                        
+                        
+                        
+                                
+8. Printing prime nos till n
+
+import java.util.*;
+
+public class assignment1{
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter n");
+        int n=sc.nextInt();
+        
+        
+        for(int i=1;i<=n;i++){
+            if(checkPrime(i)==true){
+                System.out.println(i);
+                
+            }
+        }
+      }
+        public static boolean checkPrime(int n){
+            boolean ans=false;
+              if(n==2){
+    //   System.out.println("prime");
+    ans=true;
+  }
+else {
+        int c=0;
+  if (n!=2){
+  for (int i=2;i<n;i++){
+      if(n%i==0){
+      ans=false;
+      c++;
+          break;
+      }
+      
+  }
+  
+ 
+if(c==0){
+    ans=true;
+}
+    //   System.out.print("not prime");
+ 
+
+}}
+      return ans;   }
+        
+        
+    }
+
+
+
+9. Rotate a num
+
+import java.util.*;
+
+
+public class assignment1{
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter n");
+        int n=sc.nextInt();
+        System.out.println("enter k");
+        int k=sc.nextInt();
+
+
+        int temp=n;
+
+
+        int c=0;
+        while(temp!=0){
+          temp=temp/10;
+          c++;
+        }
+
+
+        k=k%c;
+        if(k<0){
+          k=k+c;
+        }
+     
+int div=1;
+int multi=1;
+
+
+
+
+        for (int i=1;i<=c;i++){
+
+
+          if(i<=k){
+            div*=10;
+          }
+          else {
+            multi*=10;
+          }
+
+
+
+
+
+
+        }
+        int rem=n%div;
+        int q=n/div;
+        int newnum= rem*multi+q;
+        System.out.println(newnum);
+
+
+
+
+       
+    }
+    }
+
+
+
+
+10. Prime factorisation
+
+import java.util.*;
+
+
+public class assignment1{
+    public static void main(String[] args) {
+        // write your code here
+        Scanner sc=new Scanner(System.in);
+        System.out.println("enter n");
+        int n=sc.nextInt();
+for(int i=2; i*i<=n;i++ ){
+  while(n%i==0){
+    n=n/i;
+    System.out.print(i+" ");
+  }
+}
+
+
+if(n!=1){
+  System.out.print(n);
+}
+
+
+       
+    }
+    }
+
+
+
