@@ -1,0 +1,235 @@
+﻿Assignment -4
+1. Remove the duplicates from Sorted Array
+
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int j=1;
+        for(int i=1;i<nums.length;i++){
+            if(nums[i]!=nums[i-1]){
+                nums[j]=nums[i];
+                j++;
+            }
+        }
+
+
+        return j;
+    }
+}
+
+
+
+
+2.  Buy and sell stocks
+My code
+class Solution {
+    public int maxProfit(int[] prices) {
+ 
+        int maxProfit=0;
+        int buy=0;
+        int sell=0;
+        for(int i=0;i<prices.length;i++){
+buy=prices[i];
+for(int j=i;j<prices.length;j++){
+    sell=prices[j];
+    maxProfit=Math.max(maxProfit,sell-buy);
+}
+        }
+
+
+        return maxProfit;
+    }
+}
+Optimised
+class Solution {
+    public int maxProfit(int[] prices) {
+        int buy=prices[0];
+        int profit=0;
+        for(int i=0;i<prices.length;i++){
+            if(prices[i]<buy){
+                buy=prices[i];
+            }else if(prices[i]-buy>profit){
+                profit=prices[i]-buy;
+            }
+        }
+
+
+        return profit;
+    }
+}
+
+
+3. Single Number
+
+
+class Solution {
+    public int singleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int ans=nums[nums.length-1];
+        for(int i=0;i<nums.length-1;i=i+2){
+            if(nums[i]!=nums[i+1]){
+ans=nums[i];
+break;
+            }
+        }
+        return ans;
+    }
+}
+
+
+4. Search Insert Position
+
+
+class Solution {
+    public int searchInsert(int[] nums, int target) {
+        int start=0;
+        int end=nums.length-1;
+        while(start<=end){
+            int mid=start+(end-start)/2;
+            if(nums[mid]==target) return mid;
+            else if(nums[mid]>target) end=mid-1;
+            else start=mid+1;
+        }
+
+
+        return start;
+    }
+}
+5. Maximum Subarray
+
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int ans=0;
+     for(int i=0;i<nums.length;i++){
+            int sum=0;
+            for(int j=i;j<nums.length;j++){
+sum+=nums[j];
+ans=Math.max(sum,ans);
+            }
+        }
+        return ans;
+    }
+}
+
+
+
+
+
+
+6. Rotate the array
+
+
+class Solution {
+    public void rotate(int[] nums, int k) {
+        k=k%nums.length;
+        reverse(nums,0,nums.length-k-1);
+        reverse(nums,nums.length-k,nums.length-1);
+        reverse(nums,0,nums.length-1);
+    }
+    public static void reverse(int[] arr,int start,int end){
+        while(start<= end){
+            int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+        }
+    }
+}
+7.  Three sum
+class Solution {
+    public List<List<Integer>> threeSum(int[] nums) {
+        List<List<Integer>> ans=new ArrayList<>();
+
+
+        Arrays.sort(nums);
+        for(int i=0;i<nums.length-2;i++){
+            //Skip duplicate elements for i
+            if(i>0 && nums[i]==nums[i-1]){
+                continue;
+            }
+
+
+            int j=i+1;
+            int k=nums.length-1;
+
+
+            while(j<k ){
+                int sum=nums[i]+nums[j]+nums[k];
+                if(sum==0){
+                    //Found a triplet with zero sum
+                    ans.add(Arrays.asList(nums[i],nums[j],nums[k]));
+
+
+                    //skip duplicate elements for j
+                    while(j<k && nums[j]==nums[j+1]){
+                        j++;
+                    }
+
+
+                    //skip duplicate elements for k
+                    while(j<k && nums[k]==nums[k-1]){
+                        k--;
+                    }
+
+
+                    //move the pointers
+                    j++;
+                    k--;
+
+
+                }else if(sum<0){
+                    //Sum is less than zero , increment j to increase the sum
+                    j++;
+
+
+                }else{
+                    //sum is greater than zero, decrement k to decrease the sum
+                    k--;
+                }
+            }
+        }
+
+
+        return ans;
+    }
+}
+
+
+
+
+8. Find the first and last position of element in sorted array
+
+
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int start=-1;
+        int end=-1;
+        int flag=0;
+        int a[]=new int[2];
+        for(int i=0;i<nums.length;i++){
+
+
+            if(nums[i]==target && flag==0){
+                start=i;
+                flag=1;
+
+
+            }else if(nums[i]==target && flag==1){
+                end=Math.max(end,i);
+            }
+               
+           
+        }
+        if(flag==1 && end==-1){
+            end=start;
+        }
+a[0]=start;
+a[1]=end;
+return a;
+
+
+    }
+}
+9.
